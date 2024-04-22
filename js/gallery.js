@@ -85,29 +85,19 @@ const galleryItems = images.map(image => `
 
 galleryRef.insertAdjacentHTML('beforeend', galleryItems);
 
-//5.Делегування//
-
-galleryRef.addEventListener('click', (event) => {
-    event.preventDefault();
-    
-    if (event.target.nodeName !== 'IMG') return;
-    
-    const largeImageUrl = event.target.dataset.source;
-    console.log(largeImageUrl);
-});
-
 //7.Модальне вікно//
 
 galleryRef.addEventListener('click', (event) => {
-    event.preventDefault();
+  event.preventDefault();
     
-    if (event.target.nodeName !== 'IMG') return;
+  if (event.target.nodeName !== 'IMG') return;
     
-    const largeImageUrl = event.target.dataset.source;
+  const largeImageUrl = event.target.dataset.source;
+  const altText = event.target.alt;
     
-    const instance = basicLightbox.create(`
-      <img src="${largeImageUrl}" width="800" height="600">
-    `);
+  const instance = basicLightbox.create(`
+    <img src="${largeImageUrl}" width="1112" height="640" alt="${altText}">
+  `);
     
-    instance.show();
+  instance.show();
 });
